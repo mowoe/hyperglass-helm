@@ -3,5 +3,5 @@ name: hyperglass
 description: hyperglass helm deployment
 
 type: application
-version: 0.1.2
+version: 0.1.3
 appVersion: "1.0"

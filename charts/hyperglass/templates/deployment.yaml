@@ -83,6 +83,9 @@ spec:
         - name: hyperglass-config
           configMap:        
             name: hyperglass-server-config
+        - name: devices-config
+          configMap:        
+            name: hyperglass-devices-config
 ---
 apiVersion: v1
 kind: Service

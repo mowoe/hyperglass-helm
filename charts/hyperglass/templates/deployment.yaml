@@ -73,18 +73,18 @@ spec:
         - name: build-hyperglass
           image: mowoe/hyperglass-base
           command: ['sh', '-c', "hyperglass build-ui"]
-            volumeMounts:
-              - mountPath: /root/hyperglass
-                name: hyperglass-pv     
+          volumeMounts:
+            - mountPath: /root/hyperglass
+              name: hyperglass-pv
       volumes:
         - name: hyperglass-pv
           persistentVolumeClaim:
             claimName: hyperglass-pvc
         - name: hyperglass-config
-          configMap:        
+          configMap:
             name: hyperglass-server-config
         - name: devices-config
-          configMap:        
+          configMap:
             name: hyperglass-devices-config
 ---
 apiVersion: v1

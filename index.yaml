@@ -3,6 +3,16 @@ entries:
   hyperglass:
   - apiVersion: v2
     appVersion: "1.0"
+    created: "2023-08-03T20:22:27.856078403Z"
+    description: hyperglass helm deployment
+    digest: c1dfe889d0b75c0e1ff11bb8910e3b2e31dea46e209ba7739bcb1f0cc2eacd44
+    name: hyperglass
+    type: application
+    urls:
+    - https://github.com/mowoe/hyperglass-helm/releases/download/hyperglass-0.1.5/hyperglass-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: "1.0"
     created: "2023-08-02T21:51:49.288538935Z"
     description: hyperglass helm deployment
     digest: 96e82f575922440422954a31ffdcdb0e51e052c3307170feddf2ffa6310834ca
@@ -41,4 +51,4 @@ entries:
     urls:
     - https://github.com/mowoe/hyperglass-helm/releases/download/hyperglass-0.1.1/hyperglass-0.1.1.tgz
     version: 0.1.1
-generated: "2023-08-02T21:51:49.288554535Z"
+generated: "2023-08-03T20:22:27.856103204Z"

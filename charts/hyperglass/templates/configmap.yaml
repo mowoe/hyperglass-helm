@@ -4,19 +4,19 @@ kind: ConfigMap
 metadata:
   name: hyperglass-server-config
 data:
-  hyperglassyaml: |
+  hyperglass.yaml: |
     debug: false
     developer_mode: false
     org_name: {{ .Values.site_org_name }}
     site_title: {{ .Values.site_title }}
     site_description: "{{ .Values.site_description }}"
+    primary_asn: "{{ .Values.primary_asn }}"
     request_timeout: 30
     listen_address: "0.0.0.0"
     listen_port: 80
-    log_file: /tmp/hyperglass.log
     cache:
         database: 0
-        host: hyperglass-redis
+        host: 127.0.0.1
         port: 6379
         show_text: true
         timeout: 120

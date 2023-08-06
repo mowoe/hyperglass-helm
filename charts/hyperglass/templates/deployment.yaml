@@ -16,7 +16,7 @@ spec:
       containers:
         - name: hyperglass
           image: mowoe/hyperglass-base:latest
-          command: ["sh", "-c", "sleep 10 && hyperglass start"]
+          command: ["sh", "-c", "hyperglass start"]
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
@@ -74,4 +74,4 @@ spec:
   selector:
     app: hyperglass
   sessionAffinity: None
-  type: NodePort
+  type: {{ .Values.service_type }}

@@ -17,9 +17,9 @@ Then, we can inject the `devices.yaml` as a configmap into the namespace. Please
 kubectl create -n hyperglass configmap devices-config --from-file=./devices.yaml
 ```
 Then we can install hyperglass in the namespace:
-```
+```bash
 helm repo add mowoe-hyperglass https://mowoe.github.io/hyperglass-helm
-helm install --set primary_asn=123456 --set site_title="My cool Lookingglass" -n mowoe-hyperglass/hyperglass
+helm install --set primary_asn=123456 --set site_title="My cool Lookingglass" -n hyperglass mylookingglass mowoe-hyperglass/hyperglass
 ```
 #### Additional configuration
 Take a look at the [`values.yaml`](/charts/hyperglass/values.yaml) for additional parameters like changing the appearance and different configuration parameters. You can supply these option when deploying the helmchart (see [the helm documentation](https://helm.sh/docs/helm/helm_install/) on how to use the `--set` parameter for `helm install`).

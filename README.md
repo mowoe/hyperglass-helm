@@ -22,7 +22,7 @@ helm repo add mowoe-hyperglass https://mowoe.github.io/hyperglass-helm
 helm install --set primary_asn=123456 --set site_title="My cool Lookingglass" -n mowoe-hyperglass/hyperglass
 ```
 #### Additional configuration
-Take a look at the [`values.yaml`](/blob/main/charts/hyperglass/values.yaml) for additional parameters like changing the appearance and different configuration parameters. You can supply these option when deploying the helmchart (see [the helm documentation](https://helm.sh/docs/helm/helm_install/) on how to use the `--set` parameter for `helm install`).
+Take a look at the [`values.yaml`](/charts/hyperglass/values.yaml) for additional parameters like changing the appearance and different configuration parameters. You can supply these option when deploying the helmchart (see [the helm documentation](https://helm.sh/docs/helm/helm_install/) on how to use the `--set` parameter for `helm install`).
 
 ### Network configuration
 Note that the default deployment will only use a `NodePort`-Service because the intended way to deploy this, is to have a seperate loadbalancer like traefik in place. If you want to directly assign a loadbalancer to the service you can change this to `LoadBalancer`.

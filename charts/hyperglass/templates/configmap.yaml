@@ -12,7 +12,7 @@ data:
     site_description: "{{ .Values.site_description }}"
     primary_asn: "{{ .Values.primary_asn }}"
     request_timeout: 30
-    listen_address: "0.0.0.0"
+    listen_address: "::"
     listen_port: 80
     cache:
         database: 0

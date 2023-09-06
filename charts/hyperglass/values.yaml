@@ -17,3 +17,10 @@ devices_config: |
         password: hyperglass
       port: 1337
       nos: vyos
+      vrfs: 
+        - 
+          default: true
+          ipv6:
+            force_cidr: false
+            source_address: "fe::1"
+          name: global

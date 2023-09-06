@@ -12,24 +12,18 @@ Hyperglass is mainly configured through two files: `hyperglass.yaml` and `device
 
 `hyperglass.yaml` is abstracted through the helm chart and its values can be configured via the `--set primary_asn=123456` flag, or by passing a `values.yaml` to `helm install`: `-f values.yaml`.
 
-As the `devices.yaml` file differs greatly from deployment to deployment, the user is expected to pass a valid yaml object in `values.devices_config`. The easiest way to configure both `devices.yaml` and `hyperglass.yaml` is by modifying the `values.yaml` file stored in this repo.
+As the `devices.yaml` file differs greatly from deployment to deployment, the user is expected to pass a valid yaml object in `values.devices_config`.
 
 #### Installation
-
-Download the default `values.yaml` file for this chart:
-
-```bash
-wget https://raw.githubusercontent.com/mowoe/hyperglass-helm/main/charts/hyperglass/values.yaml
-```
-* Modify values.yaml with an editor of your choice
+* Have your `devices.yaml` ready and in the current directory
 
 Add the helm repo:
 ```bash
 helm repo add mowoe-hyperglass https://mowoe.github.io/hyperglass-helm
 ```
-And install the chart with the modified `values.yaml`:
+And install the chart with the `devices.yaml`:
 ```bash
-helm install -f values.yaml --create-namespace -n hyperglass mylookingglass mowoe-hyperglass/hyperglass
+helm install --set primary_asn=123456 --set site_title="My cool Lookingglass" --set-file devices_config=devices.yaml -n hyperglass mylookingglass mowoe-hyperglass/hyperglass
 ```
 (Omit the `--create-namespace -n hyperglass` flags if youre on RedHat Openshift)
 

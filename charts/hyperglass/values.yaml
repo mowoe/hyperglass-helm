@@ -17,8 +17,8 @@ devices_config: |
         password: hyperglass
       port: 1337
       nos: vyos
-      vrfs: 
-        - 
+      vrfs:
+        -
           default: true
           ipv6:
             force_cidr: false

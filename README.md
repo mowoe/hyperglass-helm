@@ -7,7 +7,7 @@ This repository contains helmcharts for a [hyperglass](https://hyperglass.dev/) 
 ## Prerequisites
 Consult the [official documentation]() on how to setup hyperglass, especially in regards to creating a `devices.yaml` config. Once you have created this config, you are ready to deploy hyperglass using this helmchart.
 
-### Deployment via `helm` and `kubectl`
+## Deployment via `helm` and `kubectl`
 Hyperglass is mainly configured through two files: `hyperglass.yaml` and `devices.yaml`.
 
 `hyperglass.yaml` is abstracted through the helm chart and its values can be configured via the `--set primary_asn=123456` flag, or by passing a `values.yaml` to `helm install`: `-f values.yaml`.
@@ -23,7 +23,13 @@ helm repo add mowoe-hyperglass https://mowoe.github.io/hyperglass-helm
 ```
 And install the chart with the `devices.yaml`:
 ```bash
-helm install --set primary_asn=123456 --set site_title="My cool Lookingglass" --set-file devices_config=devices.yaml -n hyperglass mylookingglass mowoe-hyperglass/hyperglass
+helm install \
+    --set primary_asn=123456 \
+    --set site_title="My cool Lookingglass" \
+    --set-file devices_config=devices.yaml \
+    --create-namespace -n hyperglass \
+    my-cool-lookingglass \
+    mowoe-hyperglass/hyperglass
 ```
 (Omit the `--create-namespace -n hyperglass` flags if youre on RedHat Openshift)
 

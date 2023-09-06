@@ -1,0 +1,7 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hyperglass-devices-config
+data:
+  devices.yaml: {{- .Values.devices_config | toYaml | indent 1 }}

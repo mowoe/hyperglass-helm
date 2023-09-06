@@ -2,6 +2,10 @@ apiVersion: v2
 name: hyperglass
 description: hyperglass helm deployment
 
+maintainers:
+  - name: mowoe
+    url: https://github.com/mowoe
+
 type: application
 version: 0.2.0
 appVersion: "1.0"

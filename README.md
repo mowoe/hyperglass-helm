@@ -4,25 +4,34 @@
 ## Overview
 
 This repository contains helmcharts for a [hyperglass](https://hyperglass.dev/) deployment. The deployment includes a redis caching instance as well as a configurable [`hyperglass.yaml`](https://hyperglass.dev/docs/parameters) configuration file which is stored as a kubernetes ConfigMap and is later mounted as a file into the containers.
-## Installation
+## Prerequisites
 Consult the [official documentation]() on how to setup hyperglass, especially in regards to creating a `devices.yaml` config. Once you have created this config, you are ready to deploy hyperglass using this helmchart.
 
 ### Deployment via `helm` and `kubectl`
-First, create a namespace in which hyperglass will be deployed:
+Hyperglass is mainly configured through two files: `hyperglass.yaml` and `devices.yaml`.
+
+`hyperglass.yaml` is abstracted through the helm chart and its values can be configured via the `--set primary_asn=123456` flag, or by passing a `values.yaml` to `helm install`: `-f values.yaml`.
+
+As the `devices.yaml` file differs greatly from deployment to deployment, the user is expected to pass a valid yaml object in `values.devices_config`. The easiest way to configure both `devices.yaml` and `hyperglass.yaml` is by modifying the `values.yaml` file stored in this repo.
+
+#### Installation
+
+Download the default `values.yaml` file for this chart:
+
 ```bash
-kubectl create namespace hyperglass
+wget https://raw.githubusercontent.com/mowoe/hyperglass-helm/main/charts/hyperglass/values.yaml
 ```
-Then, we can inject the `devices.yaml` as a configmap into the namespace. Please note the naming, as the deployment will look for a configmap called `devices-config` in the namespace.
-```bash
-kubectl create -n hyperglass configmap devices-config --from-file=./devices.yaml
-```
-Then we can install hyperglass in the namespace:
+* Modify values.yaml with an editor of your choice
+
+Add the helm repo:
 ```bash
 helm repo add mowoe-hyperglass https://mowoe.github.io/hyperglass-helm
-helm install --set primary_asn=123456 --set site_title="My cool Lookingglass" -n hyperglass mylookingglass mowoe-hyperglass/hyperglass
 ```
-#### Additional configuration
-Take a look at the [`values.yaml`](/charts/hyperglass/values.yaml) for additional parameters like changing the appearance and different configuration parameters. You can supply these option when deploying the helmchart (see [the helm documentation](https://helm.sh/docs/helm/helm_install/) on how to use the `--set` parameter for `helm install`).
+And install the chart with the modified `values.yaml`:
+```bash
+helm install -f values.yaml --create-namespace -n hyperglass mylookingglass mowoe-hyperglass/hyperglass
+```
+(Omit the `--create-namespace -n hyperglass` flags if youre on RedHat Openshift)
 
 ### Network configuration
 Note that the default deployment will only use a `NodePort`-Service because the intended way to deploy this, is to have a seperate loadbalancer like traefik in place. If you want to directly assign a loadbalancer to the service you can change this to `LoadBalancer`.

@@ -22,14 +22,13 @@ spec:
             - containerPort: 80
               name: http-hyperglass
               protocol: TCP
-          readinessProbe:
-            failureThreshold: 3
+          startupProbe:
+            failureThreshold: 30
             httpGet:
               path: /
               port: 80
               scheme: HTTP
-            initialDelaySeconds: 300
-            periodSeconds: 30
+            periodSeconds: 10
             successThreshold: 1
             timeoutSeconds: 2
           livenessProbe:

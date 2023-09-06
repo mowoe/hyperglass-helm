@@ -1,5 +1,26 @@
+# Documentation: https://hyperglass.dev/docs/parameters/
 site_description: "default description"
 site_title: "default title"
 site_org_name: "default org"
 primary_asn: "65000"
-service_type: NodePort
+service_type: "NodePort"
+# https://hyperglass.dev/docs/adding-devices
+devices_config: |
+  routers:
+    - name: main_router
+      address: 192.0.2.1
+      network:
+        name: production
+        display_name: AS1337
+      credential:
+        username: hyperglass
+        password: hyperglass
+      port: 1337
+      nos: vyos
+      vrfs:
+        -
+          default: true
+          ipv6:
+            force_cidr: false
+            source_address: "fe::1"
+          name: global

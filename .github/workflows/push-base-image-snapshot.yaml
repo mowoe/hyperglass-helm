@@ -1,9 +1,9 @@
-name: build-and-push-base-image (release)
+name: build-and-push-base-image
 
 on:
   push:
     branches:
-      - 'main'
+      - '*'
 
 jobs:
   docker:
@@ -27,4 +27,4 @@ jobs:
         with:
           context: "{{defaultContext}}:container"
           push: true
-          tags: mowoe/hyperglass-base:latest
+          tags: mowoe/hyperglass-base:${{ github.sha }}

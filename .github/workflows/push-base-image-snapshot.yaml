@@ -1,4 +1,4 @@
-name: build-and-push-base-image (release)
+name: build-and-push-base-image (snapshot)
 
 on:
   push:
@@ -23,5 +23,6 @@ jobs:
       - name: Build and publish a Docker image for ${{ github.repository }}
         uses: macbre/push-to-ghcr@master
         with:
+          context: "./container"
           image_name: "mowoe/hyperglass-base:${{ github.sha }}"  # it will be lowercased internally
           github_token: ${{ secrets.GITHUB_TOKEN }}

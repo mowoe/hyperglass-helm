@@ -15,9 +15,10 @@ jobs:
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-        
+
       - name: Build and publish a Docker image for ${{ github.repository }}
         uses: macbre/push-to-ghcr@master
         with:
+          context: "./container"
           image_name: mowoe/hyperglass-base  # it will be lowercased internally
           github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -6,4 +6,7 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 RUN apt update && \
     apt install -y nodejs yarn && \
     pip3 install --no-cache-dir hyperglass
+RUN useradd -ms /bin/bash hyperglass
+USER hyperglass
+WORKDIR /home/hyperglass
 RUN hyperglass setup -d    

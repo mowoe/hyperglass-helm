@@ -13,13 +13,11 @@ spec:
       labels:
         app: hyperglass
     spec:
-      securityContext:
-        fsGroup: 0
       containers:
         - name: hyperglass
-          image: mowoe/hyperglass-base:latest
+          image: ghcr.io/mowoe/hyperglass-base:latest
           command: ["sh", "-c", "hyperglass start"]
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
               name: http-hyperglass
@@ -42,14 +40,15 @@ spec:
               port: 80
             timeoutSeconds: 1
           volumeMounts:
-            - mountPath: /home/hyperglass/hyperglass/devices.yaml
+            - mountPath: /etc/hyperglass/devices.yaml
               subPath: devices.yaml
               name: devices-config
-            - mountPath: /home/hyperglass/hyperglass/hyperglass.yaml
+            - mountPath: /etc/hyperglass/hyperglass.yaml
               subPath: hyperglass.yaml
               name:  hyperglass-config
         - name: hyperglass-redis
           image: redis:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 6379
               name: redis-port

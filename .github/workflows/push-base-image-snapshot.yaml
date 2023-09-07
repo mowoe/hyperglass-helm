@@ -24,5 +24,6 @@ jobs:
         uses: macbre/push-to-ghcr@master
         with:
           context: "./container"
-          image_name: "mowoe/hyperglass-base:${{ github.sha }}"  # it will be lowercased internally
+          image_name: "mowoe/hyperglass-base"  # it will be lowercased internally
+          image_tag: ${{ github.sha }}
           github_token: ${{ secrets.GITHUB_TOKEN }}

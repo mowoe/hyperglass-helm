@@ -16,8 +16,14 @@ spec:
       containers:
         - name: hyperglass
           image: ghcr.io/mowoe/hyperglass-base:latest
-          command: ["sh", "-c", "hyperglass start"]
+          command: ["sh", "-c", "printenv && hyperglass start"]
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "2048Mi"
+              cpu: "250m"
+            limits:
+              memory: "4096Mi"
           ports:
             - containerPort: 8080
               name: http-hyperglass

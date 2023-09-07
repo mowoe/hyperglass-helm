@@ -9,7 +9,7 @@ RUN apt update && \
 
 RUN mkdir -p /etc/hyperglass
 # Move hyperglass files to /etc/hyperglass in order to not bind to a user, required in openshift
-RUN hyperglass setup -d && cp -r /root/hyperglass/* /etc/hyperglass && rm -rf /root/hyperglass
+RUN hyperglass setup -d && cp -r /root/hyperglass/* /etc/hyperglass && rm -rf /root/hyperglass && rm -rf /etc/hyperglass/static/images/hyperglass-opengraph.jpg
 # Make hyperglass configuration directory readable in openshift environments
 RUN chgrp -R 0 /etc/hyperglass && \
     chmod -R g+rwX /etc/hyperglass

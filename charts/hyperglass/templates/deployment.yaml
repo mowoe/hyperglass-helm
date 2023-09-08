@@ -16,7 +16,7 @@ spec:
       containers:
         - name: hyperglass
           image: ghcr.io/mowoe/hyperglass-base:latest
-          command: ["sh", "-c", "printenv && hyperglass start"]
+          command: ["sh", "-c", "hyperglass start"]
           imagePullPolicy: Always
           resources:
             requests:
@@ -43,7 +43,7 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             tcpSocket:
-              port: 80
+              port: 8080
             timeoutSeconds: 1
           volumeMounts:
             - mountPath: /etc/hyperglass/devices.yaml

@@ -19,5 +19,5 @@ jobs:
         with:
           context: "redis-container"
           dockerfile: redis-container/Dockerfile
-          image_name: mowoe/hyperglass-redis  # it will be lowercased internally
+          image_name: mowoe/redis  # it will be lowercased internally
           github_token: ${{ secrets.GITHUB_TOKEN }}

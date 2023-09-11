@@ -80,4 +80,4 @@ spec:
   selector:
     app: hyperglass
   sessionAffinity: None
-  type: { { .Values.service_type } }
+  type: {{ .Values.service_type }}

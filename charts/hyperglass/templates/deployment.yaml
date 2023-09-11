@@ -52,8 +52,8 @@ spec:
             - mountPath: /etc/hyperglass/hyperglass.yaml
               subPath: hyperglass.yaml
               name: hyperglass-config
-        - name: ghcr.io/mowoe/hyperglass-redis:latest
-          image: redis:latest
+        - name: redis
+          image: ghcr.io/mowoe/hyperglass-redis:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 6379
@@ -80,4 +80,4 @@ spec:
   selector:
     app: hyperglass
   sessionAffinity: None
-  type: {{ .Values.service_type }}
+  type: { { .Values.service_type } }

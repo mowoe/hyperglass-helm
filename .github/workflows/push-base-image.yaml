@@ -19,6 +19,7 @@ jobs:
       - name: Build and publish a Docker image for ${{ github.repository }}
         uses: macbre/push-to-ghcr@master
         with:
-          dockerfile: ./container/Dockerfile
+          context: "container"
+          dockerfile: container/Dockerfile
           image_name: mowoe/hyperglass-base  # it will be lowercased internally
           github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -74,7 +74,7 @@ metadata:
 spec:
   ipFamilyPolicy: PreferDualStack
   ports:
-    - port: 80
+    - port: 8080
       protocol: TCP
       targetPort: http-hyperglass
   selector:

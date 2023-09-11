@@ -1,0 +1,27 @@
+name: build-and-push-redis-image (release)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:    
+      - main
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build and publish a Docker image for ${{ github.repository }}
+        uses: macbre/push-to-ghcr@master
+        with:
+          dockerfile: ./redis-container/Dockerfile
+          image_name: mowoe/hyperglass-redis  # it will be lowercased internally
+          github_token: ${{ secrets.GITHUB_TOKEN }}

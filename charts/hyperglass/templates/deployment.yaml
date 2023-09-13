@@ -15,18 +15,24 @@ spec:
     spec:
       containers:
         - name: hyperglass
-          image: mowoe/hyperglass-base:latest
+          image: ghcr.io/mowoe/hyperglass-base:latest
           command: ["sh", "-c", "hyperglass start"]
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "4096Mi"
           ports:
-            - containerPort: 80
+            - containerPort: 8080
               name: http-hyperglass
               protocol: TCP
           startupProbe:
             failureThreshold: 30
             httpGet:
               path: /
-              port: 80
+              port: 8080
               scheme: HTTP
             periodSeconds: 10
             successThreshold: 1
@@ -37,17 +43,18 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             tcpSocket:
-              port: 80
+              port: 8080
             timeoutSeconds: 1
           volumeMounts:
-            - mountPath: /root/hyperglass/devices.yaml
+            - mountPath: /etc/hyperglass/devices.yaml
               subPath: devices.yaml
               name: devices-config
-            - mountPath: /root/hyperglass/hyperglass.yaml
+            - mountPath: /etc/hyperglass/hyperglass.yaml
               subPath: hyperglass.yaml
-              name:  hyperglass-config
-        - name: hyperglass-redis
-          image: redis:latest
+              name: hyperglass-config
+        - name: redis
+          image: ghcr.io/mowoe/hyperglass-redis:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 6379
               name: redis-port
@@ -67,7 +74,7 @@ metadata:
 spec:
   ipFamilyPolicy: PreferDualStack
   ports:
-    - port: 80
+    - port: 8080
       protocol: TCP
       targetPort: http-hyperglass
   selector:

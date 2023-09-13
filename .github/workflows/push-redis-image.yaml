@@ -1,9 +1,13 @@
-name: build-and-push-base-image (release)
+name: build-and-push-redis-image (release)
+permissions: write-all
 
 on:
   push:
     branches:
-      - 'main'
+      - main
+  pull_request:
+    branches:    
+      - main
 
 jobs:
   docker:
@@ -14,7 +18,7 @@ jobs:
       - name: Build and publish a Docker image for ${{ github.repository }}
         uses: macbre/push-to-ghcr@master
         with:
-          context: "container"
-          dockerfile: container/Dockerfile
-          image_name: mowoe/hyperglass-base  # it will be lowercased internally
+          context: "redis-container"
+          dockerfile: redis-container/Dockerfile
+          image_name: mowoe/hyperglass-redis  # it will be lowercased internally
           github_token: ${{ secrets.GITHUB_TOKEN }}

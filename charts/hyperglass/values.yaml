@@ -6,8 +6,8 @@ primary_asn: "65000"
 service_type: "NodePort"
 netmiko_delay_factor: 0.1
 apidocs:
-  base_url: 'example.org'
-  description: ''
+  base_url: 'http://example.org'
+  description: 'my very cool hyperglass api'
   enable: false
   mode: 'redoc'
   openapi_uri: '/openapi.json'

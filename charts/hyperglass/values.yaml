@@ -4,6 +4,14 @@ site_title: "default title"
 site_org_name: "default org"
 primary_asn: "65000"
 service_type: "NodePort"
+netmiko_delay_factor: 0.1
+apidocs:
+  base_url: 'example.org'
+  description: ''
+  enable: false
+  mode: 'redoc'
+  openapi_uri: '/openapi.json'
+  uri: '/api/docs'
 # https://hyperglass.dev/docs/adding-devices
 devices_config: |
   routers:

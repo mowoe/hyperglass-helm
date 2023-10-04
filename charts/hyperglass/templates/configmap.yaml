@@ -20,3 +20,12 @@ data:
         port: 6379
         show_text: true
         timeout: 120
+    netmiko_delay_factor: {{ .Values.netmiko_delay_factor }}
+    docs:
+      base_url: {{ .Values.apidocs.base_url }}
+      description: {{ .Values.apidocs.description }}
+      enable: {{ .Values.apidocs.enable }}
+      mode: {{ .Values.apidocs.mode }}
+      openapi_uri: {{ .Values.apidocs.openapi_uri }}
+      title: {{ .Values.site_title }}
+      uri: {{ .Values.apidocs.uri }}

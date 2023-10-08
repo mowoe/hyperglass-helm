@@ -19,7 +19,7 @@ devices_config: |
             force_cidr: false
             source_address: "fe::1"
           name: global
-server_config: | 
+server_config: |
   debug: false
   developer_mode: false
   org_name: "default org"

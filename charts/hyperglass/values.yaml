@@ -1,17 +1,4 @@
 # Documentation: https://hyperglass.dev/docs/parameters/
-site_description: "default description"
-site_title: "default title"
-site_org_name: "default org"
-primary_asn: "65000"
-service_type: "NodePort"
-netmiko_delay_factor: 0.1
-apidocs:
-  base_url: 'http://example.org'
-  description: 'my very cool hyperglass api'
-  enable: false
-  mode: 'redoc'
-  openapi_uri: '/openapi.json'
-  uri: '/api/docs'
 # https://hyperglass.dev/docs/adding-devices
 devices_config: |
   routers:
@@ -32,3 +19,19 @@ devices_config: |
             force_cidr: false
             source_address: "fe::1"
           name: global
+server_config: | 
+  debug: false
+  developer_mode: false
+  org_name: "default org"
+  site_title: "default title"
+  site_description: "default description"
+  primary_asn: "123456"
+  request_timeout: 30
+  listen_address: "0.0.0.0"
+  listen_port: 8080
+  cache:
+      database: 0
+      host: 127.0.0.1
+      port: 6379
+      show_text: true
+      timeout: 120

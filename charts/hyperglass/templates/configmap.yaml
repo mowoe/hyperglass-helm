@@ -4,28 +4,4 @@ kind: ConfigMap
 metadata:
   name: hyperglass-server-config
 data:
-  hyperglass.yaml: |
-    debug: false
-    developer_mode: false
-    org_name: {{ .Values.site_org_name }}
-    site_title: {{ .Values.site_title }}
-    site_description: "{{ .Values.site_description }}"
-    primary_asn: "{{ .Values.primary_asn }}"
-    request_timeout: 30
-    listen_address: "0.0.0.0"
-    listen_port: 8080
-    cache:
-        database: 0
-        host: 127.0.0.1
-        port: 6379
-        show_text: true
-        timeout: 120
-    netmiko_delay_factor: {{ .Values.netmiko_delay_factor }}
-    docs:
-      base_url: {{ .Values.apidocs.base_url }}
-      description: {{ .Values.apidocs.description }}
-      enable: {{ .Values.apidocs.enable }}
-      mode: {{ .Values.apidocs.mode }}
-      openapi_uri: {{ .Values.apidocs.openapi_uri }}
-      title: {{ .Values.site_title }}
-      uri: {{ .Values.apidocs.uri }}
+  devices.yaml: {{- .Values.server_config | toYaml | indent 1 }}

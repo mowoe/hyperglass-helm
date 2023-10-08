@@ -4,4 +4,4 @@ kind: ConfigMap
 metadata:
   name: hyperglass-server-config
 data:
-  devices.yaml: {{- .Values.server_config | toYaml | indent 1 }}
+  hyperglass.yaml: {{- .Values.server_config | toYaml | indent 1 }}

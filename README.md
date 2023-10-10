@@ -2,7 +2,7 @@
 
 [![Latest stable release of the Helm chart](https://img.shields.io/badge/dynamic/yaml.svg?label=stable&url=https://mowoe.github.io/hyperglass-helm/index.yaml&query=$.entries.hyperglass[0].version&color=1b53c2&logo=helm)](https://mowoe.github.io/hyperglass-helm)
 
-> :warning: Please not that hyperglass is currently not maintained and uses a lot of software that is EOL since a long time (e.g. see [this](https://github.com/thatmattlove/hyperglass/issues/226)). Hyperglass should not be considered a safe piece of software. This helmchart protects you from this to some degree, as the application cant escape out of the containers, but you should still think about this, especially since hyperglass may have ssh keys to your core infrastructure!
+> :warning: Please note that hyperglass is currently not maintained and uses a lot of software that is EOL since a long time (e.g. see [this](https://github.com/thatmattlove/hyperglass/issues/226)). Hyperglass should not be considered a safe piece of software. This helmchart protects you to some degree, as the application cant escape out of the containers, but you should still think about this, especially since hyperglass may have ssh keys to your core infrastructure!
 
 ## Overview
 

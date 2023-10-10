@@ -17,6 +17,12 @@ Consult the [official documentation]() on how to setup hyperglass, especially in
 ```yaml
 listen_address: "0.0.0.0"
 listen_port: 8080
+cache:
+  database: 0
+  host: 127.0.0.1
+  port: 6379
+  show_text: true
+  timeout: 120
 ```
 
 ## Deployment via `helm` and `kubectl`

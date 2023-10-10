@@ -2,7 +2,8 @@
 
 [![Latest stable release of the Helm chart](https://img.shields.io/badge/dynamic/yaml.svg?label=stable&url=https://mowoe.github.io/hyperglass-helm/index.yaml&query=$.entries.hyperglass[0].version&color=1b53c2&logo=helm)](https://mowoe.github.io/hyperglass-helm)
 
-> :warning: Please note that hyperglass is currently not maintained and uses a lot of software that is EOL since a long time (e.g. see [this](https://github.com/thatmattlove/hyperglass/issues/226)). Hyperglass should not be considered a safe piece of software. This helmchart protects you to some degree, as the application cant escape out of the containers, but you should still think about this, especially since hyperglass may have ssh keys to your core infrastructure!
+> [!WARNING]  
+> Please note that hyperglass is currently not maintained and uses a lot of software that is EOL since a long time (e.g. see [this](https://github.com/thatmattlove/hyperglass/issues/226)). Hyperglass should not be considered a safe piece of software. This helmchart protects you to some degree, as the application cant escape out of the containers, but you should still think about this, especially since hyperglass may have ssh keys to your core infrastructure!
 
 ## Overview
 
@@ -12,7 +13,8 @@ This repository contains helmcharts for a [hyperglass](https://hyperglass.dev/) 
 
 Consult the [official documentation]() on how to setup hyperglass, especially in regards to creating a `devices.yaml` config and a `hyperglass.yaml`. Once you have created these configs, you are ready to deploy hyperglass using this helmchart.
 
-:warning: Please note that it is absolutely mandatory that you have the following two lines in your `hyperglass.yaml`:
+> [!IMPORTANT]  
+> Please note that it is absolutely mandatory that you have the following two lines in your `hyperglass.yaml`:
 
 ```yaml
 listen_address: "0.0.0.0"

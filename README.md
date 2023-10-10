@@ -14,7 +14,7 @@ This repository contains helmcharts for a [hyperglass](https://hyperglass.dev/) 
 Consult the [official documentation]() on how to setup hyperglass, especially in regards to creating a `devices.yaml` config and a `hyperglass.yaml`. Once you have created these configs, you are ready to deploy hyperglass using this helmchart.
 
 > [!IMPORTANT]  
-> Please note that it is absolutely mandatory that you have the following two lines in your `hyperglass.yaml`:
+> Please note that it is absolutely mandatory that you have the following lines in your `hyperglass.yaml`:
 
 ```yaml
 listen_address: "0.0.0.0"
@@ -29,7 +29,7 @@ cache:
 
 ## Deployment via `helm` and `kubectl`
 
-Hyperglass is mainly configured through files: `hyperglass.yaml` and `devices.yaml`.
+Hyperglass is mainly configured through two files: `hyperglass.yaml` and `devices.yaml`.
 
 As the `devices.yaml` and `hyperglass.yaml` file differs greatly from deployment to deployment, the user is expected to pass a valid yaml object in `values.devices_config` and `values.hyperglass_config`.
 

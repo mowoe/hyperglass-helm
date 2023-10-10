@@ -2,6 +2,8 @@
 
 [![Latest stable release of the Helm chart](https://img.shields.io/badge/dynamic/yaml.svg?label=stable&url=https://mowoe.github.io/hyperglass-helm/index.yaml&query=$.entries.hyperglass[0].version&color=1b53c2&logo=helm)](https://mowoe.github.io/hyperglass-helm)
 
+> :warning: Please not that hyperglass is currently not maintained and uses a lot of software that is EOL since a long time (e.g. see [this](https://github.com/thatmattlove/hyperglass/issues/226)). Hyperglass should not be considered a safe piece of software. This helmchart protects you from this to some degree, as the application cant escape out of the containers, but you should still think about this, especially since hyperglass may have ssh keys to your core infrastructure!
+
 ## Overview
 
 This repository contains helmcharts for a [hyperglass](https://hyperglass.dev/) deployment. The deployment includes a redis caching instance as well as a configurable [`hyperglass.yaml`](https://hyperglass.dev/docs/parameters) configuration file which is stored as a kubernetes ConfigMap and is later mounted as a file into the containers.

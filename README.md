@@ -29,7 +29,7 @@ cache:
 
 ## Deployment via `helm` and `kubectl`
 
-Hyperglass is mainly configured through two files: `hyperglass.yaml` and `devices.yaml`.
+Hyperglass is mainly configured through files: `hyperglass.yaml` and `devices.yaml`.
 
 As the `devices.yaml` and `hyperglass.yaml` file differs greatly from deployment to deployment, the user is expected to pass a valid yaml object in `values.devices_config` and `values.hyperglass_config`.
 
